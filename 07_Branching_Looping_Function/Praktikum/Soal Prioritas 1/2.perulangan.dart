@@ -5,11 +5,11 @@ void main(List<String> args) {
   }
 
   // mengunakan while
-  // int i = 1;
-  // while (i <= 10) {
-  //   print(i);
-  //   i++;
-  // }
+  int i = 1;
+  while (i <= 10) {
+    print(i);
+    i++;
+  }
 
   // menggunakan do while
   // int j = 1;

@@ -2,19 +2,19 @@ import 'dart:io';
 
 void main(List<String> args) {
   stdout.write("Masukkan Nilai: ");
-  int Nilai = int.parse(stdin.readLineSync()!);
+  int nilai = int.parse(stdin.readLineSync()!);
 
-  print(getNilai(Nilai));
+  print(getNilai(nilai));
 }
 
-String getNilai(int Nilai) {
+String getNilai(int nilai) {
   String hasil;
 
-  if (Nilai > 70) {
+  if (nilai > 70) {
     hasil = "A";
-  } else if (Nilai > 40) {
+  } else if (nilai > 40) {
     hasil = "B";
-  } else if (Nilai > 0) {
+  } else if (nilai > 0) {
     hasil = "C";
   } else {
     hasil = "";
