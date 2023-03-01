@@ -1,19 +1,16 @@
 void main(List<String> args) {
-  List bio = [
-    ['Haikal Alfandi'],
-    [21],
-  ];
+  print("Sepatu HypeBeast");
+
+  List listSepatu = [];
+  listSepatu.add(["Adidas", "Adidas Samba"]);
+  listSepatu.add(["Nike", "Nike Airmax"]);
 
   // print before convert
-  print(bio);
+  print(listSepatu);
 
-  // convert bio to map with key name and age
-  Map<String, dynamic> bioMap = {
-    'name': bio[0][0],
-    'age': bio[1][0],
-  };
-  
-  print(bioMap);
-  
-  
+  // convert bio to map
+  Map listSepatuMap =
+      Map.fromIterable(listSepatu, key: (e) => e[0], value: (e) => e[1]);
+
+  print(listSepatuMap);
 }
