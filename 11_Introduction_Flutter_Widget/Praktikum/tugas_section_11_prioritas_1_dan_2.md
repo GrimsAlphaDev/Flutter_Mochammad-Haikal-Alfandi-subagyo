@@ -30,5 +30,3 @@
 
             Screenshot Menajalankan Program Di Emulator
             ![Program Running On Emulator](https://www.linkpicture.com/q/image_2023-03-09_223702484.png)<br>
-
-        
