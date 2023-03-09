@@ -4,17 +4,24 @@
 
 ### 1. Sebutkan 3 aplikasi yang dibangun menggunakan teknologi Flutter! lalu screenshot
             
-### 1. Grab
-ScreenShot Aplikasi Grab <br>
-![Grab](https://www.linkpicture.com/q/grab.jpg)<br>
+<div style='margin-left:25px; display:flex; width:100%;'>
+<div style='width:30%; justify-content:center;'>
+<h3>1. Grab</h3>
+ScreenShot Aplikasi Grab 
+<img src="https://www.linkpicture.com/q/grab.jpg" width="200" height="400" />
+</div>
+<div style='width:30%'>
+<h3>2. Ebay</h3>
+ScreenShot Aplikasi Ebay 
+<img src="https://www.linkpicture.com/q/ebay.jpg" width="200" height="400" />
+</div>
+<div style='width:30%'>
+<h3>2. Alibaba</h3>
+ScreenShot Aplikasi Alibaba 
+<img src="https://www.linkpicture.com/q/alibaba.jpg" width="200" height="400" />
+</div>
 
-### 2. Ebay<br>
-ScreenShot Aplikasi Ebay <br>
-![Ebay](https://www.linkpicture.com/q/alibaba.jpg)<br>
-
-### 3. Alibaba
-ScreenShot Aplikasi Alibaba <br>
-![Grab](https://www.linkpicture.com/q/ebay.jpg)<br>
+</div>
 
 ### 2. Tampilkan informasi software yang dibutuhkan oleh Flutter dengan menggunakan perintah Flutter doctor! lalu screenshot
 Screenshot Flutter Doctor <br>
