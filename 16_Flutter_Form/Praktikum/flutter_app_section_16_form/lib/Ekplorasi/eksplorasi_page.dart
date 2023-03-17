@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_section_12_praktikum/Decider/decider_app.dart';
+import 'package:flutter_app_section_16_form/Decider/decider_app.dart';
 
 // section 13 platform widget
 class EksplorasiHome extends StatelessWidget {
@@ -51,6 +51,14 @@ class EksplorasiHome extends StatelessWidget {
               ),
               const ListTile(
                 title: Text('Learn ReactJS'),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              // create a black horizontal line
+              Container(
+                height: 1,
+                color: const Color.fromARGB(255, 209, 206, 206),
               ),
               const SizedBox(
                 height: 10,
