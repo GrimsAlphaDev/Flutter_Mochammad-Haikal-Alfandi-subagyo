@@ -9,7 +9,7 @@ screenshot <br>
 
 ### Soal Eksplorasi
 Screenshot <br>
-![Soal Eksplorasi Form](../Screenshot/Tugas_Form_Soal_Ekplorasi.png.png)<br>
+![Soal Eksplorasi Form](../Screenshot/Tugas_Form_Soal_Ekplorasi.png)<br>
 
 ## Tugas Advance Form
 
