@@ -17,105 +17,7 @@ class DeciderPage extends StatelessWidget {
           child: Column(
             children: [
               GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/material'),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width / 4),
-                      width: MediaQuery.of(context).size.width / 2,
-                      height: MediaQuery.of(context).size.height / 4,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromARGB(255, 64, 233, 93),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                'Tugas Prioritas 1',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                'Material Design',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              // material design icon
-                              Icon(
-                                Icons.android,
-                                color: Colors.white,
-                                size: 50,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/cupertino'),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width / 4),
-                      width: MediaQuery.of(context).size.width / 2,
-                      height: MediaQuery.of(context).size.height / 4,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromARGB(255, 46, 39, 49),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                'Tugas Prioritas 2',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                'Cupertino Design',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              // cupertino design icon
-                              Icon(
-                                Icons.apple,
-                                color: Colors.white,
-                                size: 50,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/eksplorasi'),
+                onTap: () => Navigator.pushNamed(context, '/newContact'),
                 child: Row(
                   children: [
                     Container(
@@ -133,20 +35,113 @@ class DeciderPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               Text(
-                                'Tugas Eksplorasi',
+                                'Tugas Form',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              // Flutter logo
+                              FlutterLogo(
+                                size: 50,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/advanceForm'),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width / 4),
+                      width: MediaQuery.of(context).size.width / 2,
+                      height: MediaQuery.of(context).size.height / 4,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 36, 22, 228),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Tugas Advance Form',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                'My Flutter App',
+                                'Tugas Prioritas 1',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold),
                               ),
-                              const SizedBox(
+                              SizedBox(
+                                height: 10,
+                              ),
+                              // Flutter logo
+                              FlutterLogo(
+                                size: 50,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/advanceForm2'),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width / 4),
+                      width: MediaQuery.of(context).size.width / 2,
+                      height: MediaQuery.of(context).size.height / 4,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 36, 22, 228),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Tugas Advance Form',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                'Tugas Prioritas 1',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
                                 height: 10,
                               ),
                               // Flutter logo
