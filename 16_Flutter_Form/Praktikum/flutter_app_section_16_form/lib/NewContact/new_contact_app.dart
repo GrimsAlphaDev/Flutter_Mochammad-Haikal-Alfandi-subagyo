@@ -6,10 +6,6 @@ class NewContactApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const NewContactPage(),
-      theme: ThemeData.light(useMaterial3: true),
-      debugShowCheckedModeBanner: false,
-    );
+    return const NewContactPage();
   }
 }

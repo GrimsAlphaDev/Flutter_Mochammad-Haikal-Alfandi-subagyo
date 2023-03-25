@@ -6,10 +6,6 @@ class AdvanceForm2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(useMaterial3: true),
-      home: const AdvanceFormPage2(),
-    );
+    return const AdvanceFormPage2();
   }
 }

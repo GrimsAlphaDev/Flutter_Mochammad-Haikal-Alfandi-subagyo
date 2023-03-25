@@ -47,13 +47,6 @@ class _AdvanceFormPage2State extends State<AdvanceFormPage2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const App()));
-          },
-        ),
         title: Row(
           children: const [
             Icon(Icons.phone),

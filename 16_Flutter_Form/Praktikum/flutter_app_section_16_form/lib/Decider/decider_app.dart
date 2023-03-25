@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(useMaterial3: true),
       initialRoute: '/',
       routes: {
         '/': (context) => const DeciderPage(),

@@ -135,10 +135,10 @@ class DeciderPage extends StatelessWidget {
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                'Tugas Prioritas 1',
+                                'Tugas Prioritas 2 & Eksplorasi',
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 20,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(

@@ -23,13 +23,6 @@ class _AdvanceFormPageState extends State<AdvanceFormPage> {
       appBar: AppBar(
         title: const Text('Interactive Widgets'),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const App()));
-          },
-        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(16),
