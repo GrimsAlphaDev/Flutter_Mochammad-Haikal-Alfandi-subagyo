@@ -1,3 +1,7 @@
+import 'package:app_section_22/Animation/fade.dart';
+import 'package:app_section_22/Animation/scale.dart';
+import 'package:app_section_22/NewContact/create_contact_page.dart';
+import 'package:app_section_22/NewContact/edit_contact_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -166,6 +170,26 @@ class _NewContactPageState extends State<NewContactPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
+                        ElevatedButton(
+                          onPressed: () => Navigator.push(
+                              context,
+                              scaleTransitionBuilder(
+                                  child: const EditContacts())),
+                          child: Text('Edit Contact'),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        ElevatedButton(
+                          onPressed: () => Navigator.push(
+                              context,
+                              fadeTransitionBuilder(
+                                  child: const CreateContacts())),
+                          child: Text('Create Contact'),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
                         ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
@@ -436,8 +460,8 @@ class _NewContactPageState extends State<NewContactPage> {
                                                               print(provider
                                                                   .contacts);
                                                               Navigator.of(
-                                                                      context,)
-                                                                  .pop();
+                                                                context,
+                                                              ).pop();
                                                             }
                                                           },
                                                           child: const Text(
