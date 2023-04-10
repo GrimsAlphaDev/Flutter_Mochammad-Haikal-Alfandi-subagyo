@@ -1,7 +1,8 @@
-import 'package:app_section_25/Model/contacts_model.dart';
-import 'package:app_section_25/Model/put_data_model.dart';
+import 'package:app_section_25/contact_bloc/bloc/contact_bloc.dart';
+import 'package:app_section_25/model/contacts_model.dart';
 import 'package:app_section_25/Services/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Prioritas1 extends StatefulWidget {
   const Prioritas1({super.key});
@@ -17,9 +18,6 @@ class _Prioritas1State extends State<Prioritas1> {
   final _formKeyPut = GlobalKey<FormState>();
   final _namaLengkap = TextEditingController();
   final _noHandphone = TextEditingController();
-  final List<ContactsModel> _contacts = [];
-  final List<ContactsModel> _fetchContacts = [];
-  final List<PutData> _putContacts = [];
   final Services services = Services();
   final _title = TextEditingController(text: 'foo');
   final _body = TextEditingController(text: 'bar');
@@ -28,9 +26,6 @@ class _Prioritas1State extends State<Prioritas1> {
   void dispose() {
     _namaLengkap.dispose();
     _noHandphone.dispose();
-    _contacts.clear();
-    _fetchContacts.clear();
-    _putContacts.clear();
     super.dispose();
   }
 
@@ -41,6 +36,7 @@ class _Prioritas1State extends State<Prioritas1> {
 
   @override
   Widget build(BuildContext context) {
+    print('rebuild');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tugas Prioritas 1'),
@@ -110,15 +106,11 @@ class _Prioritas1State extends State<Prioritas1> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          services
-                              .postDataContact(
-                                  name: _namaLengkap.text,
-                                  phone: _noHandphone.text)
-                              .then((contacts) {
-                            setState(() {
-                              _contacts.add(contacts);
-                            });
-                          });
+                          context.read<ContactBloc>().add(
+                                ContactEventPost(
+                                    name: _namaLengkap.text,
+                                    phone: _noHandphone.text),
+                              );
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('Silahkan Cek Console'),
@@ -146,16 +138,32 @@ class _Prioritas1State extends State<Prioritas1> {
               const SizedBox(
                 height: 20,
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: _contacts.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title: Text(_contacts[index].name ?? ''),
-                    subtitle: Text(_contacts[index].phone ?? ''),
+              BlocBuilder<ContactBloc, ContactState>(builder: (context, state) {
+                if (state is ContactInitial) {
+                  return const Center(child: Text('Belum ada Contacts'));
+                }
+                if (state is ContactStateLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (state is ContactStateSuccess) {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: state.contacts.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(state.contacts[index].name ?? ''),
+                        subtitle: Text(state.contacts[index].phone ?? ''),
+                      );
+                    },
                   );
-                },
-              ),
+                }
+                if (state is ContactStateError) {
+                  return Center(
+                    child: Text(state.message.toString()),
+                  );
+                }
+                return const SizedBox();
+              }),
               const SizedBox(
                 height: 20,
               ),
@@ -168,36 +176,58 @@ class _Prioritas1State extends State<Prioritas1> {
               ),
               GestureDetector(
                 onTap: () {
-                  services.fetchContact().then((contacts) {
-                    _fetchContacts.clear();
-                    _fetchContacts.add(contacts);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Silahkan Cek Console'),
-                      ),
-                    );
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Convert Json ke Class Object'),
-                          content: SingleChildScrollView(
-                              child: Column(children: [
-                            Text('Nama Lengkap : ${_fetchContacts[0].name}'),
-                            Text('No Handphone : ${_fetchContacts[0].phone}'),
-                          ])),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text('OK'),
+                  context.read<ContactBloc>().add(ContactEventConvertJson());
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return BlocBuilder<ContactBloc, ContactState>(
+                          builder: (context, state) {
+                        if (state is ContactStateLoading) {
+                          return const AlertDialog(
+                            title: Text('Loading'),
+                            content: CircularProgressIndicator(),
+                          );
+                        }
+                        if (state is ContactStateSuccess) {
+                          return AlertDialog(
+                            title: const Text('Convert Json ke Class Object'),
+                            content: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Text(
+                                      'Nama Lengkap : ${state.contacts[0].name}'),
+                                  Text(
+                                      'No Handphone : ${state.contacts[0].phone}'),
+                                ],
+                              ),
                             ),
-                          ],
-                        );
-                      },
-                    );
-                  });
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        }
+                        if (state is ContactStateError) {
+                          return Center(
+                            child: Text(state.message.toString()),
+                          );
+                        }
+                        return const SizedBox();
+                      });
+                    },
+                  );
+                  // });
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Silahkan Cek Console'),
+                    ),
+                  );
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -275,23 +305,16 @@ class _Prioritas1State extends State<Prioritas1> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKeyPut.currentState!.validate()) {
-                          services
-                              .putDataContacts(
-                            title: _title.text,
-                            body: _body.text,
-                          )
-                              .then((contacts) {
-                            _putContacts.clear();
-                            _putContacts.add(contacts);
-                            // send notification
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Silahkan Cek Console'),
-                              ),
-                            );
-                            debugPrint(_putContacts[0].body.toString());
-                            debugPrint(_putContacts[0].title.toString());
-                          });
+                          context.read<ContactBloc>().add(
+                                ContactEventPut(
+                                    title: _title.text, body: _body.text),
+                              );
+                          // send notification
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Silahkan Cek Console'),
+                            ),
+                          );
                         }
                       },
                       child: const Padding(

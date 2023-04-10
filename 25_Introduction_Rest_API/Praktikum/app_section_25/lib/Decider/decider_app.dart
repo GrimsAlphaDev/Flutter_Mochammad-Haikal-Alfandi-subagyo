@@ -1,4 +1,4 @@
-import 'package:app_section_25/Decider/decider_page.dart';
+import 'package:app_section_25/decider/decider_page.dart';
 import 'package:app_section_25/Screen/eksplorasi.dart';
 import 'package:app_section_25/Screen/prioritas_1.dart';
 import 'package:app_section_25/Screen/prioritas_2.dart';

@@ -1,5 +1,3 @@
-import 'package:app_section_25/Model/contacts_model.dart';
-import 'package:app_section_25/Model/put_data_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +17,7 @@ class Services {
           });
       debugPrint(response.data.toString());
 
-      final ContactsModel contactsModel = ContactsModel.fromJson(response.data);
-      return contactsModel;
+      return response;
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -33,9 +30,7 @@ class Services {
 
       debugPrint(response.data.toString());
 
-      final ContactsModel contactsModel = ContactsModel.fromJson(response.data);
-
-      return contactsModel;
+      return response;
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -56,9 +51,7 @@ class Services {
 
       debugPrint(response.data.toString());
 
-      final PutData putData = PutData.fromJson(response.data);
-
-      return putData;
+      return response;
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -71,7 +64,7 @@ class Services {
 
       debugPrint(response.data.toString());
 
-      return response.data;
+      return response;
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -84,7 +77,7 @@ class Services {
 
       debugPrint(response.data.toString());
 
-      return response.data;
+      return response;
     } catch (e) {
       debugPrint(e.toString());
     }

@@ -1,5 +1,7 @@
 import 'package:app_section_25/Services/services.dart';
+import 'package:app_section_25/image_bloc/bloc/image_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Prioritas2 extends StatefulWidget {
@@ -17,6 +19,13 @@ class _Prioritas2State extends State<Prioritas2> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<ImageBloc>(context).add(GetImageEvent());
+  }
+
+  @override
+  void dispose() {
+    BlocProvider.of<ImageBloc>(context).close();
+    super.dispose();
   }
 
   @override
@@ -42,22 +51,40 @@ class _Prioritas2State extends State<Prioritas2> {
                 const SizedBox(
                   height: 20,
                 ),
-                SizedBox(
-                  height: 200,
-                  width: 200,
-                  child: FutureBuilder(
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        return SvgPicture.string(
-                          snapshot.data.toString(),
-                        );
-                      } else {
-                        return const CircularProgressIndicator();
-                      }
-                    },
-                    future: service.fetchImage(),
-                  ),
+                const SizedBox(
+                  height: 20,
                 ),
+                BlocBuilder<ImageBloc, ImageState>(builder: (context, state) {
+                  if (state is ImageStateLoading) {
+                    return const CircularProgressIndicator();
+                  }
+                  if (state is ImageStateSuccess) {
+                    return SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: SvgPicture.string(
+                        state.images,
+                      ),
+                    );
+                  }
+                  if (state is ImageStateError) {
+                    return Container(
+                        height: 200,
+                        width: 200,
+                        color: Colors.grey,
+                        child: Center(
+                          child: Text(state.message.toString()),
+                        ));
+                  }
+                  return Container(
+                    height: 200,
+                    width: 200,
+                    color: Colors.grey,
+                    child: const Center(
+                      child: Text('No Image'),
+                    ),
+                  );
+                }),
               ],
             ),
           ),
