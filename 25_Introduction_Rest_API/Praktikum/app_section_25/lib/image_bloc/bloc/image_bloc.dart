@@ -29,7 +29,7 @@ class ImageBloc extends Bloc<ImageEvent, ImageState> {
           seed: event.url,
         );
 
-        emit(ImageStateSuccess(response.data.toString()));
+        emit(ImageCustomStateSuccess(response.data.toString()));
       } catch (e) {
         emit(ImageStateError(e.toString()));
       }

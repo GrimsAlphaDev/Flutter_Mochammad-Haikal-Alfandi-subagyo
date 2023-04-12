@@ -1,5 +1,4 @@
 import 'package:app_section_25/contact_bloc/bloc/contact_bloc.dart';
-import 'package:app_section_25/model/contacts_model.dart';
 import 'package:app_section_25/Services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +35,6 @@ class _Prioritas1State extends State<Prioritas1> {
 
   @override
   Widget build(BuildContext context) {
-    print('rebuild');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tugas Prioritas 1'),

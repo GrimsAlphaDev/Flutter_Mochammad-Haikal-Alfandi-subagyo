@@ -22,11 +22,6 @@ class _Prioritas2State extends State<Prioritas2> {
     BlocProvider.of<ImageBloc>(context).add(GetImageEvent());
   }
 
-  @override
-  void dispose() {
-    BlocProvider.of<ImageBloc>(context).close();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

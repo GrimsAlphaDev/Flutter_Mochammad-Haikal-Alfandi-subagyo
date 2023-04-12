@@ -79,10 +79,20 @@ class _EksplorasiState extends State<Eksplorasi> {
                   height: 20,
                 ),
                 BlocBuilder<ImageBloc, ImageState>(builder: (context, state) {
+                  if (state is ImageInitial) {
+                    return Container(
+                      height: 200,
+                      width: 200,
+                      color: Colors.grey,
+                      child: const Center(
+                        child: Text('No Image'),
+                      ),
+                    );
+                  }
                   if (state is ImageStateLoading) {
                     return const CircularProgressIndicator();
                   }
-                  if (state is ImageStateSuccess) {
+                  if (state is ImageCustomStateSuccess) {
                     return SizedBox(
                       height: 200,
                       width: 200,
