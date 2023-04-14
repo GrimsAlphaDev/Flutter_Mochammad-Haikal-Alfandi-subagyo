@@ -1,12 +1,11 @@
-import 'package:app_section_26/view/screen/contacts/contacs_screen.dart';
-import 'package:app_section_26/view/screen/image/image_custom_screen.dart';
-import 'package:app_section_26/view/screen/image/image_screen.dart';
+import 'package:app_section_27/view/screen/prioritas_1/prioritas_1_screen.dart';
+import 'package:app_section_27/view/screen/prioritas_2/prioritas_2_screen.dart';
 import 'package:flutter/material.dart';
 
 class DeciderScreen extends StatefulWidget {
-  const DeciderScreen({super.key});
+  static const String routeName = '/';
 
-  final routeName = '/';
+  const DeciderScreen({super.key});
 
   @override
   State<DeciderScreen> createState() => _DeciderScreenState();
@@ -17,7 +16,7 @@ class _DeciderScreenState extends State<DeciderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tugas MVVM Architecture'),
+        title: const Text('Tugas Finite State & Unit Testing'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -26,8 +25,8 @@ class _DeciderScreenState extends State<DeciderScreen> {
           child: Column(
             children: [
               GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, const ContactsScreen().routeName),
+                onTap: () =>
+                    Navigator.pushNamed(context, Prioritas1Screen.routeName),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -62,11 +61,11 @@ class _DeciderScreenState extends State<DeciderScreen> {
               ),
               GestureDetector(
                 onTap: () =>
-                    Navigator.pushNamed(context, const ImageScreen().routename),
+                    Navigator.pushNamed(context, Prioritas2Screen.routeName),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromARGB(255, 64, 233, 225),
+                    color: const Color.fromARGB(255, 64, 208, 233),
                   ),
                   child: Center(
                     child: Padding(
@@ -76,41 +75,6 @@ class _DeciderScreenState extends State<DeciderScreen> {
                         children: const [
                           Text(
                             'Tugas Prioritas 2',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Icon(
-                            Icons.android,
-                            color: Colors.white,
-                            size: 50,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, const ImageCustomScreen().routename),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromARGB(255, 43, 106, 202),
-                  ),
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            'Tugas Eksplorasi',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
