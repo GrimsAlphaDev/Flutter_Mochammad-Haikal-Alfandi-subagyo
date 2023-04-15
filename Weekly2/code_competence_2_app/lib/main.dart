@@ -154,8 +154,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   padding: const EdgeInsets.all(10),
-                  height: 185,
-                  width: 185,
+                  height: 180,
+                  width: 180,
                   margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 92, 60, 167),
@@ -187,8 +187,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   padding: const EdgeInsets.all(10),
-                  height: 185,
-                  width: 185,
+                  height: 180,
+                  width: 180,
                   margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 92, 60, 167),

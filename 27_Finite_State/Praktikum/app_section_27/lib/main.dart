@@ -1,4 +1,3 @@
-import 'package:app_section_27/provider/database_provider.dart';
 import 'package:app_section_27/view/screen/decider/decider_screen.dart';
 import 'package:app_section_27/view/screen/prioritas_1/prioritas_1_screen.dart';
 import 'package:app_section_27/view/screen/prioritas_1/prioritas_1_view_model.dart';
@@ -11,7 +10,6 @@ void main() => runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => Prioritas1ViewModel()),
-          ChangeNotifierProvider(create: (_) => DatabaseProvider()),
           ChangeNotifierProvider(create: (_) => Prioritas2ViewModel()),
         ],
         child: const HomePage(),

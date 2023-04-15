@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:app_section_27/model/contacts_model.dart';
-import 'package:app_section_27/repository/contact_repository.dart';
+import 'package:app_section_27/model/service/local_database_service.dart';
 import 'package:app_section_27/utils/state/finit_state.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
